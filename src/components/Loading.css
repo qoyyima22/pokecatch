@@ -3,20 +3,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #fff;
   }
   .lds-ring {
     display: inline-block;
     position: relative;
-    width: 80px;
-    height: 80px;
+    width: 40px;
+    height: 40px;
   }
   .lds-ring div {
     box-sizing: border-box;
     display: block;
     position: absolute;
-    width: 64px;
-    height: 64px;
+    width: 40px;
+    height: 40px;
     margin: 8px;
     border: 8px solid rgb(114,94,156);
     border-radius: 50%;

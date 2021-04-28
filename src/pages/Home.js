@@ -1,31 +1,77 @@
 import React, { useEffect, useState } from 'react';
 import Layout from '../layout/Layout';
-import styles from "./Home.css"
-import Loading from "../components/Loading"
+import { gql, useQuery } from '@apollo/client';
+import Loading from '../components/Loading';
+import PokemonList from '../components/PokemonsList'
+// import { ApolloConsumer } from '@apollo/client/react'
+
+const GET_POKEMONS = gql`
+  query pokemons($limit: Int, $offset: Int) {
+    pokemons(limit: $limit, offset: $offset) {
+      count
+      next
+      previous
+      status
+      message
+      results {
+        url
+        name
+        image
+      }
+    }
+  }
+`;
+
+const gqlVariables = {
+  limit: 8,
+  offset: 0,
+};
 
 const Home = () => {
-  const [ data, setData ] = useState({})
-  const [ loading, setLoading ] = useState(true) 
-  
-  useEffect(() => {
-    fetch('https://ecdba7fe-ec10-4d90-8d0e-80f8364c7624.mock.pstmn.io/takehometest/frontend/web/dashboard')
-    .then(response => response.json())
-    .then(data => data.code === 2200 && setData(data.data))
-    .catch(err => console.error(err))
-    .finally(() => setLoading(false))
-  },[])
-  
+  const { loading, error, data, fetchMore, ...rest } = useQuery(GET_POKEMONS, {
+    variables: gqlVariables,
+  });
+
   return (
     <Layout>
       {
-        loading ? (<Loading />) : (
-          <div className={styles.container}>
-            Ini yaaaaaaaaa
-          </div>
-        )
+        loading && <Loading />
       }
+      {
+        error && <p>Error: {error.message}</p>
+      }
+        <PokemonList 
+          pokemons={data?.pokemons?.results || []}
+          onLoadMore={() => {
+            fetchMore({
+              variables: {
+                offset: data?.pokemons?.results?.length || 1
+              },
+              updateQuery: (prev, { fetchMoreResult }) => {
+                if (!fetchMoreResult) return prev;
+                return Object.assign({}, prev, {
+                  pokemons: {
+                    ...prev.pokemons,
+                    results: [...prev.pokemons.results, ...fetchMoreResult.pokemons.results]
+                  }
+                });
+              }
+            })
+          }}
+        />
+      {/* {
+        data?.pokemons?.results?.map(({ image, name }, i) => (
+         <div key={`${i}-${name}`}>
+           <p>
+             {name}
+           </p>
+           <img src={image} alt={`${name}-pokemon-img`} />
+         </div>
+       ))
+      } */}
     </Layout>
-  );
+  )
 };
+
 
 export default Home;

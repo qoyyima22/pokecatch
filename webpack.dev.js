@@ -49,7 +49,11 @@ module.exports = {
             loader: 'file-loader',
           },
         ],
-      }
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: 'asset/resource',
+      },
     ]
   },
   plugins: [
