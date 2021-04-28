@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/react'
-import { goldYellow, blue, goldFoll } from "src/config/colors"
-// import Pokemon from "../assets/fonts/pokemon/pokemon1.ttf"
+import { goldYellow, blue, goldFoll, bostonRed } from "src/config/colors"
 
 const Header = () => {
     return (
@@ -14,7 +13,7 @@ const Header = () => {
             align-items: center;
             top: 0;
             z-index: 3;
-            background-color: ${goldFoll};
+            background-color: ${bostonRed};
         `}>
             <h1 css={css`
                 font-family: 'Pokemon';
