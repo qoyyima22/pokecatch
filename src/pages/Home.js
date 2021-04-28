@@ -28,7 +28,7 @@ const gqlVariables = {
 };
 
 const Home = () => {
-  const { loading, error, data, fetchMore, ...rest } = useQuery(GET_POKEMONS, {
+  const { loading, error, data, fetchMore } = useQuery(GET_POKEMONS, {
     variables: gqlVariables,
   });
 
