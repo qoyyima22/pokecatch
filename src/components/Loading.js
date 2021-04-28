@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from "./Loading.css"
+import ReactDelayRender from "react-delay-render"
 
 const Loading = () => {
     return (
@@ -9,4 +10,4 @@ const Loading = () => {
     )
 }
 
-export default Loading
+export default ReactDelayRender({ delay: 300 })(Loading);
