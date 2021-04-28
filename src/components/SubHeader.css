@@ -1,0 +1,12 @@
+.container {
+    background: #F5F5F5;
+    height: 56px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 16px;
+}
+
+.date {
+   composes: dkS12W600 from "src/styles/typo.css"
+}
