@@ -218,17 +218,19 @@ const ModalContent = ({isCatched, name, setOwned, owned, setIsCatched, close}) =
                                 You've successfully catch {name}, please give this one a nickname, you're cool!
                             </h5>
                         </div>
-                        <div css={css`
-                            margin-bottom: 16px;
-                        `}>
-                            <Input value={nick} onChange={(e) => setNick(e.target.value)} rules={rules} />
-                        </div>
-                        <div css={css`
-                            display: flex;
-                            justify-content: center;
-                        `}>
-                            <Button disabled={isDisabled} onClick={save}>Save</Button>
-                        </div>
+                        <form onSubmit={save}>
+                            <div css={css`
+                                margin-bottom: 16px;
+                            `}>
+                                <Input value={nick} onChange={(e) => setNick(e.target.value)} rules={rules} />
+                            </div>
+                            <div css={css`
+                                display: flex;
+                                justify-content: center;
+                            `}>
+                                <Button disabled={isDisabled} type='submit'>Save</Button>
+                            </div>
+                        </form>
                     </>
                 )
             }

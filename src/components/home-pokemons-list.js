@@ -5,7 +5,7 @@ import Loading from './base-loading'
 
 const handleScroll = ({ currentTarget }, onLoadMore) => {
   if (
-    currentTarget.scrollTop + currentTarget.clientHeight >=
+    currentTarget.scrollTop + currentTarget.clientHeight -20 >=
     currentTarget.scrollHeight
   ) {
     onLoadMore();
