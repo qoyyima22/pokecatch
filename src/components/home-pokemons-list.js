@@ -15,11 +15,10 @@ const handleScroll = ({ currentTarget }, onLoadMore) => {
 const PokemonList = ({ pokemons, onLoadMore, loading }) => {
  return (
       <div css={css`
-      padding-bottom: 80px;
-      height: 600px;
+      /* padding-bottom: 80px; */
+      height: 80vh;
       overflow-y: auto;
       `} 
-      className="list-group pokemons-list"
       onScroll={e => handleScroll(e, onLoadMore)}>
         {pokemons?.map(({ image, name }, i) => (
             <HomeCard image={image} name={name} i={i} key={i} />

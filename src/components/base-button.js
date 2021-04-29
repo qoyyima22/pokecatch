@@ -1,8 +1,8 @@
 /** @jsx jsx **/
 import { jsx, css } from '@emotion/react'
-import { blue, bostonRed } from '../config/colors'
+import { blue, bostonRed, lightGrey } from '../config/colors'
 
-const Button = ({children}) => {
+const Button = ({children, ...rest}) => {
     return (
         <button css={css`
             display: flex;
@@ -25,7 +25,10 @@ const Button = ({children}) => {
                 outline: none;
                 outline-offset: -4px;
             }
-        `}>
+            :disabled {
+                background: ${lightGrey};
+            }
+        `} {...rest}>
             {children}
         </button>
     )

@@ -3,14 +3,20 @@ import { jsx, css } from '@emotion/react'
 import { white, darkGrey } from '../config/colors'
 import Button from './base-button'
 import { Link } from 'react-router-dom'
+import store from 'store'
 
 export default function HomeCard({image, name, i}) {
+    const owned = store.get('owned')
+    const getOwnedCount = (name) => {
+        if(!owned) return 0
+        return owned?.filter(el => el.name === name).length
+    }
     return (
         <div css={css`
             padding: 16px 0 0 16px;
             margin: 24px;
             background: ${white};
-            height: 100px;
+            height: 140px;
             border-radius: 12px;
             display: flex;
             justify-content: space-between;
@@ -29,6 +35,10 @@ export default function HomeCard({image, name, i}) {
                     text-transform: capitalize;
                     color: ${darkGrey};
                 `}>{name}</h3>
+                <h5 css={css`
+                    text-transform: capitalize;
+                    color: ${darkGrey};
+                `}>Total owned: {getOwnedCount(name)} </h5>
                 <Link to={`/detail/${name}`}>
                     <Button>Catch!</Button>
                 </Link>
@@ -52,7 +62,7 @@ export default function HomeCard({image, name, i}) {
                     width: 116px;
                     z-index: 1;
                     border-top-left-radius: 116px;
-                    border-top-right-radius: 12px;
+                    /* border-top-right-radius: 12px; */
                     border-bottom-right-radius: 12px;
                 `}/>
                 <div css={css`

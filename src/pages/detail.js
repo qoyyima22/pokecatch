@@ -30,7 +30,6 @@ const GET_POKEMON = gql`
 const Detail = () => {
   const location = useLocation()
   const splitted = location.pathname.split('/')
-  console.log(location)
   const gqlVariables = {
     name: splitted[splitted.length-1]
   };
@@ -38,7 +37,6 @@ const Detail = () => {
       variables: gqlVariables,
       notifyOnNetworkStatusChange: true,
   });
-  console.log({data,name:splitted[splitted.length-1]}, "ini data detaullllll")
   return (
     <Layout>
       {error && <p>Error: {error.message}</p>}
