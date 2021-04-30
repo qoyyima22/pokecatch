@@ -8,14 +8,7 @@ import { validate } from 'src/utils'
 import { useAppContext } from 'src/context'
 import Button from './base-button'
 
-const ModalContent = ({
-  isCatched,
-  name,
-  // setOwned, owned,
-  setIsCatched,
-  close,
-  img,
-}) => {
+const ModalContent = ({ isCatched, name, setIsCatched, close, img }) => {
   const { state, dispatch } = useAppContext()
   const { owned } = state
   const [nick, setNick] = React.useState(`${name}-${owned?.length || 0}`)
