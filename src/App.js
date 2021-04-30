@@ -6,6 +6,7 @@ import { Global, css } from '@emotion/react'
 import Pokemon from "./assets/fonts/pokemon2.ttf"
 import Montserrat from "./assets/fonts/montserrat.ttf"
 import { white } from './config/colors'
+import { Provider } from './context'
 
 const Home = importedComponent(
     () => import(/* webpackChunkName: 'Home' */ './pages/home'),
@@ -21,9 +22,16 @@ const Detail = importedComponent(
     }
 )
 
+const MyPokemons = importedComponent(
+    () => import(/* webpackChunkName: 'MyPokemon' */ './pages/mypokemons'),
+    {
+      LoadingComponent: Loading
+    }
+)
+
 const App = () => {
   return (
-    <>
+    <Provider>
         <Global styles={css`
             html, body {
                 height: 100%;
@@ -54,10 +62,11 @@ const App = () => {
             <Switch>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/detail/:name" component={Detail} />
+                <Route exact path="/mypokemons" component={MyPokemons} />
             </Switch>
         </div>
         </Router>
-    </>
+    </Provider>
   );
 };
 

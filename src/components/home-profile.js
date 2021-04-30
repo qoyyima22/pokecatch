@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import React from 'react'
 import { jsx, css } from '@emotion/react'
-import { goldYellow, blue, bostonRed, white } from "src/config/colors"
+import { bostonRed, white } from "src/config/colors"
 import { Link } from 'react-router-dom'
 import store from 'store'
 
@@ -49,7 +49,7 @@ const Profile = () => {
                                     }
                                 </div>
                                 <div>
-                                    <Link>
+                                    <Link to='/mypokemons'>
                                         <h6>
                                             See more &gt;
                                         </h6>
