@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 const Header = () => {
     return (
         <div css={css`
-            height: 20vh;
+            height: 10vh;
             position: sticky;
             display: flex;
             padding: 0;
@@ -24,7 +24,7 @@ const Header = () => {
                     color: ${goldYellow};
                     -webkit-text-stroke-width: 2px;
                     -webkit-text-stroke-color: ${blue};
-                    font-size: 48px;
+                    font-size: 36px;
                     letter-spacing: 4px;
                 `
                 }>PokeCatch</h1>

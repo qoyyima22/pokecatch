@@ -5,6 +5,7 @@ import Loading from "./components/base-loading"
 import { Global, css } from '@emotion/react'
 import Pokemon from "./assets/fonts/pokemon2.ttf"
 import Montserrat from "./assets/fonts/montserrat.ttf"
+import { white } from './config/colors'
 
 const Home = importedComponent(
     () => import(/* webpackChunkName: 'Home' */ './pages/home'),
@@ -42,6 +43,10 @@ const App = () => {
             h1,h2,h3, h4, h5, h6, span {
                 margin: 0;
                 font-family: Montserrat, open-sans;
+            }
+            a {
+                text-decoration: none;
+                color: ${white};
             }
         `} />
         <Router>

@@ -2,6 +2,7 @@ import React from "react";
 import Layout from "../layout/layout";
 import { gql, useQuery } from "@apollo/client";
 import PokemonList from "../components/home-pokemons-list";
+import Profile from "../components/home-profile.js"
 
 const GET_POKEMONS = gql`
   query pokemons($limit: Int, $offset: Int) {
@@ -29,6 +30,7 @@ const Home = () => {
   return (
     <Layout>
       {error && <p>Error: {error.message}</p>}
+      <Profile />
       <PokemonList
         pokemons={data?.pokemons?.results || []}
         loading={loading}
