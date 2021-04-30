@@ -1,8 +1,8 @@
-import React from "react";
-import Layout from "../layout/layout";
-import { gql, useQuery } from "@apollo/client";
-import PokemonList from "../components/home-pokemons-list";
-import Profile from "../components/home-profile.js"
+import React from 'react'
+import Layout from '../layout/layout'
+import { gql, useQuery } from '@apollo/client'
+import PokemonList from '../components/home-pokemons-list'
+import Profile from '../components/home-profile.js'
 
 const GET_POKEMONS = gql`
   query pokemons($limit: Int, $offset: Int) {
@@ -14,18 +14,18 @@ const GET_POKEMONS = gql`
       }
     }
   }
-`;
+`
 
 const gqlVariables = {
   limit: 8,
   offset: 0,
-};
+}
 
 const Home = () => {
   const { loading, error, data, fetchMore } = useQuery(GET_POKEMONS, {
     variables: gqlVariables,
     notifyOnNetworkStatusChange: true,
-  });
+  })
 
   return (
     <Layout>
@@ -40,22 +40,19 @@ const Home = () => {
               offset: data?.pokemons?.results?.length || 0,
             },
             updateQuery: (prev, { fetchMoreResult }) => {
-              if (!fetchMoreResult) return prev;
+              if (!fetchMoreResult) return prev
               return Object.assign({}, prev, {
                 pokemons: {
                   ...prev.pokemons,
-                  results: [
-                    ...prev.pokemons.results,
-                    ...fetchMoreResult.pokemons.results,
-                  ],
+                  results: [...prev.pokemons.results, ...fetchMoreResult.pokemons.results],
                 },
-              });
+              })
             },
-          });
+          })
         }}
       />
     </Layout>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

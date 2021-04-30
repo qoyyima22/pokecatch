@@ -5,26 +5,28 @@ import Loading from './base-loading'
 
 const handleScroll = ({ currentTarget }, onLoadMore, loading) => {
   if (
-    (currentTarget.scrollTop + currentTarget.clientHeight + 40 >=
-    currentTarget.scrollHeight) && !loading
+    currentTarget.scrollTop + currentTarget.clientHeight + 40 >= currentTarget.scrollHeight &&
+    !loading
   ) {
-    onLoadMore();
+    onLoadMore()
   }
-};
-
-const PokemonList = ({ pokemons, onLoadMore, loading }) => {
- return (
-      <div css={css`
-      height: 80vh;
-      overflow-y: auto;
-      `} 
-      onScroll={e => handleScroll(e, onLoadMore, loading)}>
-        {pokemons?.map(({ image, name }, i) => (
-            <HomeCard image={image} name={name} i={i} key={i} />
-        ))}
-        {loading && <Loading />}
-      </div>
-  );
 }
 
-export default PokemonList;
+const PokemonList = ({ pokemons, onLoadMore, loading }) => {
+  return (
+    <div
+      css={css`
+        height: 80vh;
+        overflow-y: auto;
+      `}
+      onScroll={(e) => handleScroll(e, onLoadMore, loading)}
+    >
+      {pokemons?.map(({ image, name }, i) => (
+        <HomeCard image={image} name={name} i={i} key={i} />
+      ))}
+      {loading && <Loading />}
+    </div>
+  )
+}
+
+export default PokemonList
