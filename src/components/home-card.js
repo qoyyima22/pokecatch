@@ -11,6 +11,7 @@ export default function HomeCard({ image, name, i }) {
     if (!owned) return 0
     return owned?.filter((el) => el.name === name).length
   }
+  let ownedCount = getOwnedCount(name)
   return (
     <div
       css={css`
@@ -49,10 +50,10 @@ export default function HomeCard({ image, name, i }) {
             color: ${darkGrey};
           `}
         >
-          Total owned: {getOwnedCount(name)}{' '}
+          {ownedCount ? `Total owned: ${getOwnedCount(name)}` : `No ${name} yet`}
         </h5>
         <Link to={`/detail/${name}`}>
-          <Button>Catch!</Button>
+          <Button>{ownedCount ? 'Catch more!' : 'Catch one!'}</Button>
         </Link>
       </div>
       <div
