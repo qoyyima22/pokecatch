@@ -76,14 +76,16 @@ const Profile = () => {
             </div>
           </>
         ) : (
-          <h5
-            css={css`
-              color: ${bostonRed};
-              text-align: center;
-            `}
-          >
-            You don't have any pokemon, go and catch them all!
-          </h5>
+          <div>
+            <h5
+              css={css`
+                color: ${bostonRed};
+                text-align: center;
+              `}
+            >
+              You don't have any pokemon, go and catch them all!
+            </h5>
+          </div>
         )}
       </div>
     </div>
