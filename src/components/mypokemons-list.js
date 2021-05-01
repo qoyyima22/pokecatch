@@ -14,7 +14,12 @@ const MyPokemonsList = () => {
     })
   }
   return (
-    <>
+    <div
+      css={css`
+        height: 90vh;
+        overflow-y: auto;
+      `}
+    >
       {state.owned.map((el, i) => (
         <div
           key={i}
@@ -105,7 +110,7 @@ const MyPokemonsList = () => {
           </div>
         </div>
       ))}
-    </>
+    </div>
   )
 }
 
