@@ -4,6 +4,7 @@ import { white, darkGrey } from '../config/colors'
 import Button from './base-button'
 import { Link } from 'react-router-dom'
 import store from 'store'
+import { LG_CONTAINER_DEFAULT } from 'src/config/layouts'
 
 export default function HomeCard({ image, name, i }) {
   const owned = store.get('owned')
@@ -17,15 +18,17 @@ export default function HomeCard({ image, name, i }) {
       css={css`
         padding: 16px 0 0 16px;
         margin: 24px;
+        margin-bottom: 24px !important;
         background: ${white};
         height: 140px;
         border-radius: 12px;
         display: flex;
         justify-content: space-between;
         box-shadow: 5px 5px 2px 0px rgba(0, 0, 255, 0.15);
-        :first-of-type {
+        /* :first-of-type {
           margin-top: 0;
-        }
+        } */
+        ${LG_CONTAINER_DEFAULT}
       `}
     >
       <div

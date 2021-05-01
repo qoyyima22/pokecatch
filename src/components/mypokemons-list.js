@@ -3,10 +3,12 @@ import React from 'react'
 import { css, jsx } from '@emotion/react'
 import { Link } from 'react-router-dom'
 import { useAppContext } from 'src/context'
-import { white, darkGrey } from 'src/config/colors'
+import { white, darkGrey, goldYellow } from 'src/config/colors'
 import Button from './base-button'
 import Modal from './base-modal'
 import ModalContent from './mypokemons-modal-content'
+import { LG_CONTAINER_DEFAULT, SM_SCREEN } from 'src/config/layouts'
+import { bostonRed } from '../config/colors'
 
 const MyPokemonsList = () => {
   let { state, dispatch } = useAppContext()
@@ -32,15 +34,17 @@ const MyPokemonsList = () => {
             css={css`
               padding: 16px 0 0 16px;
               margin: 24px;
+              margin-bottom: 24px !important;
               background: ${white};
               height: 140px;
               border-radius: 12px;
               display: flex;
               justify-content: space-between;
               box-shadow: 5px 5px 2px 0px rgba(0, 0, 255, 0.15);
-              :first-of-type {
+              /* :first-of-type {
                 margin-top: 0;
-              }
+              } */
+              ${LG_CONTAINER_DEFAULT}
             `}
           >
             <div
@@ -123,11 +127,18 @@ const MyPokemonsList = () => {
             flex-direction: column;
             align-items: center;
             padding: 0 16px;
+            background: ${goldYellow}aa;
+            padding: 12px;
+            border-radius: 20px;
+            margin: 0 24px;
+            ${LG_CONTAINER_DEFAULT}/* @media (min-width: ${SM_SCREEN}) {
+              margin-bottom: 24px;
+            } */
           `}
         >
           <h4
             css={css`
-              color: ${white};
+              color: ${bostonRed};
               margin-bottom: 16px;
               text-align: center;
             `}

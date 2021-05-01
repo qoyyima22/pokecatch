@@ -15,7 +15,7 @@ const Header = () => {
         align-items: center;
         top: 0;
         z-index: 3;
-        background-color: ${bostonRed};
+        /* background-color: ${bostonRed}; */
       `}
     >
       <Link

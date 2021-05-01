@@ -2,6 +2,7 @@
 import React from 'react'
 import { jsx, css } from '@emotion/react'
 import { white } from '../config/colors'
+import { LG_CONTAINER_DEFAULT } from 'src/config/layouts'
 
 const Modal = ({ children, show, close, closable, ...rest }) => {
   return show ? (
@@ -28,6 +29,7 @@ const Modal = ({ children, show, close, closable, ...rest }) => {
           padding: 16px;
           z-index: 4;
           margin: 0 20px;
+          ${LG_CONTAINER_DEFAULT}
         `}
         {...rest}
       >

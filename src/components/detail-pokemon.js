@@ -9,6 +9,7 @@ import Modal from './base-modal'
 import { useAppContext } from 'src/context'
 import ModalContent from './detail-modal-content'
 import Catch from './detail-catch'
+import { SM_SCREEN, LG_CONTAINER_DEFAULT } from 'src/config/layouts'
 
 export default function Pokemon({ data, loading }) {
   const { state } = useAppContext()
@@ -69,6 +70,7 @@ export default function Pokemon({ data, loading }) {
                 margin: 16px;
                 border-radius: 20px;
                 height: 250px;
+                ${LG_CONTAINER_DEFAULT}
               `}
             >
               <div

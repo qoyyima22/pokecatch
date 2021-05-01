@@ -1,9 +1,10 @@
 /** @jsx jsx */
 import React from 'react'
 import { jsx, css } from '@emotion/react'
-import { bostonRed, white } from 'src/config/colors'
+import { bostonRed, white, goldYellow } from 'src/config/colors'
 import { Link } from 'react-router-dom'
 import store from 'store'
+import { LG_CONTAINER_DEFAULT, SM_SCREEN } from 'src/config/layouts'
 
 const Profile = () => {
   const owned = store.get('owned') || []
@@ -11,15 +12,24 @@ const Profile = () => {
     <div
       css={css`
         height: 10vh;
-        padding: 0 24px;
-        background-color: ${bostonRed};
+        margin: 0 24px;
+        /* margin-bottom: 24px !important; */
+        background: ${goldYellow}aa;
+        padding: 0 12px;
+        border-radius: 20px;
+        ${LG_CONTAINER_DEFAULT}
+        @media (min-width: ${SM_SCREEN}) {
+          margin-bottom: 24px;
+        }
       `}
     >
       {owned?.length ? (
         <h5
           css={css`
-            color: ${white};
-            height: 20%;
+            color: ${bostonRed};
+            height: 35%;
+            display: flex;
+            align-items: center;
           `}
         >
           You have {owned.length} pokemons
@@ -30,7 +40,7 @@ const Profile = () => {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          height: 80%;
+          height: ${owned?.length ? '65%' : '100%'};
         `}
       >
         {owned.length ? (
@@ -41,12 +51,13 @@ const Profile = () => {
                   <img
                     src={el.img}
                     css={css`
-                      height: 35px;
-                      width: 35px;
-                      border-radius: 17.5px;
+                      height: 30px;
+                      width: 30px;
+                      border-radius: 15px;
                       object-fit: cover;
                       background: ${white};
                       margin-right: 4px;
+                      border: 1px solid ${bostonRed};
                     `}
                   />
                 </Link>
@@ -54,14 +65,20 @@ const Profile = () => {
             </div>
             <div>
               <Link to="/mypokemons">
-                <h6>See more &gt;</h6>
+                <h6
+                  css={css`
+                    color: ${bostonRed};
+                  `}
+                >
+                  See more &gt;
+                </h6>
               </Link>
             </div>
           </>
         ) : (
           <h5
             css={css`
-              color: ${white};
+              color: ${bostonRed};
               text-align: center;
             `}
           >
