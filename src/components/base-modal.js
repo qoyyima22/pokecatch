@@ -1,7 +1,7 @@
 /** @jsx jsx **/
 import React from 'react'
 import { jsx, css } from '@emotion/react'
-import { blue, bostonRed, white } from '../config/colors'
+import { white } from '../config/colors'
 
 const Modal = ({ children, show, close, closable, ...rest }) => {
   return show ? (

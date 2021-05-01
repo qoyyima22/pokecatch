@@ -11,7 +11,7 @@ function reducer(state, action) {
       return { owned: temp }
     }
     case 'REMOVE_OWNED': {
-      const temp = state.owned.filter((el) => el !== action.nick)
+      const temp = state.owned.filter((el) => el.nick !== action.nick)
       store.set('owned', temp)
       return { owned: temp }
     }

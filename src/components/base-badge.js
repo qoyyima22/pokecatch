@@ -1,6 +1,6 @@
 /** @jsx jsx **/
 import { jsx, css } from '@emotion/react'
-import { blue, bostonRed, white, goldYellow } from '../config/colors'
+import { blue, bostonRed, goldYellow } from '../config/colors'
 
 const Badge = ({ children, i }) => {
   return (
