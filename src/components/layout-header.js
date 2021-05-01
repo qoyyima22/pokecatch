@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/react'
-import { goldYellow, blue, bostonRed } from 'src/config/colors'
+import { goldYellow, blue, bostonRed } from '../config/colors'
 import { Link } from 'react-router-dom'
 
 const Header = () => {

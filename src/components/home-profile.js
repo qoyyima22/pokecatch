@@ -13,7 +13,6 @@ const Profile = () => {
       css={css`
         height: 10vh;
         margin: 0 24px;
-        /* margin-bottom: 24px !important; */
         background: ${goldYellow}aa;
         padding: 0 12px;
         border-radius: 20px;

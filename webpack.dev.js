@@ -1,68 +1,15 @@
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path')
+const { merge } = require('webpack-merge');
+const common = require('./webpack.common.js');
 
 const port = process.env.PORT || 3000;
 
-module.exports = {
+module.exports = merge(common, {
   mode: 'development',
-  entry: './src/index.js',
-  output: {
-    filename: 'bundle.[hash].js',
-    publicPath: '/'
-  },
-  resolve: {
-    alias: {
-      "react-dom": "@hot-loader/react-dom",
-      "src": path.resolve(__dirname, "src")
-    },
-  },
   devtool: 'inline-source-map',
-  module: {
-    rules: [
-      {
-        test: /\.(js)$/,
-        exclude: /node_modules/,
-        use: ['babel-loader']
-      },
-      {
-        test: /\.css$/,
-        use: [
-          {
-            loader: 'style-loader'
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              modules: {
-                exportLocalsConvention: "camelCase"
-              },
-              sourceMap: true,
-            }
-          }
-        ]
-      },
-      {
-        test: /\.(png|jpe?g|gif|svg)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-          },
-        ],
-      },
-      {
-        test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        type: 'asset/resource',
-      },
-    ]
+  devServer: {
+    contentBase: './dist',
   },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new HtmlWebpackPlugin({
-      template: 'public/index.html',
-      favicon: 'public/favicon.png'
-    })
-  ],
   devServer: {
     host: 'localhost',
     port: port,
@@ -71,4 +18,4 @@ module.exports = {
     open: true,
     hot: true
   }
-};
+});
