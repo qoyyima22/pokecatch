@@ -26,5 +26,5 @@ export default Badge
 export const BadgeWrapperStyle = css`
   white-space: nowrap;
   overflow: auto;
-  padding: 8px 0;
+  padding: 8px 0 12px;
 `

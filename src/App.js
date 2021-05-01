@@ -32,12 +32,12 @@ const App = () => {
           body {
             height: 100%;
             width: 100%;
-            margin: 0;
+            margin: 0 auto;
+            max-width: 480px;
           }
           @font-face {
             font-family: 'Pokemon';
             src: url(${Pokemon}) format('truetype');
-            font-weight: 600;
             font-style: normal;
           }
           @font-face {
@@ -57,6 +57,36 @@ const App = () => {
           a {
             text-decoration: none;
             color: ${white};
+          }
+          ::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+            background-color: transparent;
+            border-radius: 10px;
+            width: 4px;
+            height: 4px;
+          }
+
+          ::-webkit-scrollbar {
+            width: 10px;
+            background-color: transparent;
+            border-radius: 10px;
+            width: 4px;
+            height: 4px;
+          }
+
+          ::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            width: 4px;
+            height: 4px;
+            background-color: #fff;
+            background-image: -webkit-gradient(
+              linear,
+              40% 0%,
+              75% 84%,
+              from(#4d9c41),
+              to(#19911d),
+              color-stop(0.6, #54de5d)
+            );
           }
         `}
       />
