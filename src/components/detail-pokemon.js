@@ -147,7 +147,7 @@ export default function Pokemon({ data, loading }) {
           close={() => setModal(false)}
           name={data?.name}
           isCatched={isCatched}
-          setIsCatched={setIsCatching}
+          setIsCatched={setIsCatched}
           img={data?.sprites?.front_default}
         />
       </Modal>

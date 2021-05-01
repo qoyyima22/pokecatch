@@ -12,10 +12,12 @@ const ModalContent = ({ isCatched, name, setIsCatched, close, img }) => {
   const { state, dispatch } = useAppContext()
   const { owned } = state
   const [nick, setNick] = React.useState(`${name}-${owned?.length || 0}`)
+  const [added, setAdded] = React.useState(false)
   const save = () => {
     dispatch({ type: 'ADD_OWNED', data: { name, nick, img } })
     setIsCatched(false)
-    close()
+    // close()
+    setAdded(true)
   }
   const rules = [
     {
@@ -27,7 +29,7 @@ const ModalContent = ({ isCatched, name, setIsCatched, close, img }) => {
   const isDisabled = validate(rules, nick).length
   return (
     <>
-      {!isCatched && (
+      {!isCatched && !added && (
         <div
           css={css`
             display: flex;
@@ -43,7 +45,7 @@ const ModalContent = ({ isCatched, name, setIsCatched, close, img }) => {
           <h5>You've failed to catch {name}, have fun and try again</h5>
         </div>
       )}
-      {isCatched && (
+      {isCatched && !added && (
         <>
           <div
             css={css`
@@ -80,6 +82,22 @@ const ModalContent = ({ isCatched, name, setIsCatched, close, img }) => {
             </div>
           </form>
         </>
+      )}
+      {added && (
+        <div
+          css={css`
+            display: flex;
+            align-items: center;
+          `}
+        >
+          <CheckCircleTwoTone
+            css={css`
+              margin-right: 8px;
+            `}
+            twoToneColor="#52c41a"
+          />
+          <h5>{nick} is now your pokemon!</h5>
+        </div>
       )}
     </>
   )

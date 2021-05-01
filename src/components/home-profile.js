@@ -62,6 +62,7 @@ const Profile = () => {
           <h5
             css={css`
               color: ${white};
+              text-align: center;
             `}
           >
             You don't have any pokemon, go and catch them all!
