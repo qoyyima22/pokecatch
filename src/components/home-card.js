@@ -3,13 +3,15 @@ import { jsx, css } from '@emotion/react'
 import { white, darkGrey } from '../config/colors'
 import Button from './base-button'
 import { Link } from 'react-router-dom'
-import store from 'store'
-import { LG_CONTAINER_DEFAULT } from 'src/config/layouts'
+import { LG_CONTAINER_DEFAULT } from '../config/layouts'
+import { useAppContext } from '../context'
 
 export default function HomeCard({ image, name, i }) {
-  const owned = store.get('owned')
+  // const owned = store.get('owned')
+  const { state } = useAppContext()
+  const { owned } = state
   const getOwnedCount = (name) => {
-    if (!owned) return 0
+    if (!owned?.length) return 0
     return owned?.filter((el) => el.name === name).length
   }
   let ownedCount = getOwnedCount(name)
@@ -25,9 +27,6 @@ export default function HomeCard({ image, name, i }) {
         display: flex;
         justify-content: space-between;
         box-shadow: 5px 5px 2px 0px rgba(0, 0, 255, 0.15);
-        /* :first-of-type {
-          margin-top: 0;
-        } */
         ${LG_CONTAINER_DEFAULT}
       `}
     >

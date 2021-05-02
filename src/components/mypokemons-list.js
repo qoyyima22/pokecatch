@@ -2,12 +2,12 @@
 import React from 'react'
 import { css, jsx } from '@emotion/react'
 import { Link } from 'react-router-dom'
-import { useAppContext } from 'src/context'
-import { white, darkGrey, goldYellow } from 'src/config/colors'
+import { useAppContext } from '../context'
+import { white, darkGrey, goldYellow } from '../config/colors'
 import Button from './base-button'
 import Modal from './base-modal'
 import ModalContent from './mypokemons-modal-content'
-import { LG_CONTAINER_DEFAULT, SM_SCREEN } from 'src/config/layouts'
+import { LG_CONTAINER_DEFAULT, SM_SCREEN } from '../config/layouts'
 import { bostonRed } from '../config/colors'
 
 const MyPokemonsList = () => {
@@ -71,7 +71,9 @@ const MyPokemonsList = () => {
               >
                 {el.name}
               </h5>
-              <Button onClick={() => release(el.nick)}>Release!</Button>
+              <Button data-testid="release-button" onClick={() => release(el.nick)}>
+                Release!
+              </Button>
             </div>
             <div
               css={css`

@@ -7,7 +7,6 @@ import Pokemon from './assets/fonts/pokemon2.ttf'
 import Montserrat from './assets/fonts/montserrat.ttf'
 import { white, bostonRed, darkGrey } from './config/colors'
 import { Provider } from './context'
-import bg from './assets/img/bg.png'
 
 const Home = importedComponent(() => import(/* webpackChunkName: 'Home' */ './pages/home'), {
   LoadingComponent: Loading,

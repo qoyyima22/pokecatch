@@ -19,6 +19,7 @@ const PokemonList = ({ pokemons, onLoadMore, loading }) => {
         height: 80vh;
         overflow-y: auto;
       `}
+      data-testid="list-container"
       onScroll={(e) => handleScroll(e, onLoadMore, loading)}
     >
       {pokemons?.map(({ image, name }, i) => (

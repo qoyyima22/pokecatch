@@ -2,14 +2,14 @@
 import React from 'react'
 import { jsx, css } from '@emotion/react'
 import Loading from './base-loading'
-import { white } from 'src/config/colors'
+import { white } from '../config/colors'
 import Badge, { BadgeWrapperStyle } from './base-badge'
 import Button from './base-button'
 import Modal from './base-modal'
-import { useAppContext } from 'src/context'
+import { useAppContext } from '../context'
 import ModalContent from './detail-modal-content'
 import Catch from './detail-catch'
-import { SM_SCREEN, LG_CONTAINER_DEFAULT } from 'src/config/layouts'
+import { LG_CONTAINER_DEFAULT } from '../config/layouts'
 
 export default function Pokemon({ data, loading }) {
   const { state } = useAppContext()
@@ -17,7 +17,8 @@ export default function Pokemon({ data, loading }) {
   const [isCatched, setIsCatched] = React.useState(false)
   const { owned } = state
   const [isModal, setModal] = React.useState(false)
-  const ownedLength = owned && data ? owned.filter((el) => el.name === data.name).length : 0
+  const ownedLength =
+    owned?.length && data ? owned.filter((el) => el.name === data?.name).length : 0
   return (
     <div
       css={css`
@@ -59,7 +60,7 @@ export default function Pokemon({ data, loading }) {
                 }
               `}
               src={data?.sprites?.front_default}
-              alt={data.name}
+              alt={data?.name}
             />
           </div>
           {!isCatching && (
@@ -86,7 +87,7 @@ export default function Pokemon({ data, loading }) {
                     text-transform: capitalize;
                   `}
                 >
-                  {data.name}
+                  {data?.name}
                 </h2>
                 <h6>Owned: {ownedLength}</h6>
               </div>
@@ -133,7 +134,7 @@ export default function Pokemon({ data, loading }) {
                   margin-top: 32px;
                 `}
               >
-                <Button onClick={() => setIsCatching(true)}>
+                <Button data-testid="catch-button" onClick={() => setIsCatching(true)}>
                   Catch {!ownedLength ? 'Now!' : 'More!'}
                 </Button>
               </div>

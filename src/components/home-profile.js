@@ -1,13 +1,16 @@
 /** @jsx jsx */
 import React from 'react'
 import { jsx, css } from '@emotion/react'
-import { bostonRed, white, goldYellow } from 'src/config/colors'
+import { bostonRed, white, goldYellow } from '../config/colors'
 import { Link } from 'react-router-dom'
-import store from 'store'
-import { LG_CONTAINER_DEFAULT, SM_SCREEN } from 'src/config/layouts'
+// import store from 'store'
+import { LG_CONTAINER_DEFAULT, SM_SCREEN } from '../config/layouts'
+import { useAppContext } from '../context'
 
 const Profile = () => {
-  const owned = store.get('owned') || []
+  // const owned = store.get('owned') || []
+  const { state } = useAppContext()
+  const { owned } = state
   return (
     <div
       css={css`

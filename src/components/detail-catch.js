@@ -19,6 +19,7 @@ const Catch = ({ setIsCatched, setIsCatching, setModal }) => {
 
   return (
     <img
+      data-testid="pokeball"
       css={css`
         height: 100px;
         width: 100px;

@@ -1,14 +1,14 @@
 /** @jsx jsx */
 import React from 'react'
 import { jsx, css } from '@emotion/react'
-import { bostonRed } from 'src/config/colors'
+import { bostonRed } from '../config/colors'
 import { CheckCircleTwoTone, CloseCircleTwoTone } from '@ant-design/icons'
 import Input from './base-input'
-import { validate } from 'src/utils'
-import { useAppContext } from 'src/context'
+import { validate } from '../utils'
+import { useAppContext } from '../context'
 import Button from './base-button'
 
-const ModalContent = ({ isCatched, name, setIsCatched, close, img }) => {
+const ModalContent = ({ isCatched, name, setIsCatched, img }) => {
   const { state, dispatch } = useAppContext()
   const { owned } = state
   const [nick, setNick] = React.useState(`${name}-${owned?.length || 0}`)
@@ -53,6 +53,7 @@ const ModalContent = ({ isCatched, name, setIsCatched, close, img }) => {
               align-items: center;
               margin-bottom: 16px;
             `}
+            data-testid="success-catch"
           >
             <CheckCircleTwoTone
               css={css`
@@ -62,13 +63,18 @@ const ModalContent = ({ isCatched, name, setIsCatched, close, img }) => {
             />
             <h5>You've successfully catch {name}, please give this one a nickname, you're cool!</h5>
           </div>
-          <form onSubmit={save}>
+          <form onSubmit={save} data-testid="nick-form">
             <div
               css={css`
                 margin-bottom: 16px;
               `}
             >
-              <Input value={nick} onChange={(e) => setNick(e.target.value)} rules={rules} />
+              <Input
+                data-testid="nick-input"
+                value={nick}
+                onChange={(e) => setNick(e.target.value)}
+                rules={rules}
+              />
             </div>
             <div
               css={css`
@@ -76,7 +82,7 @@ const ModalContent = ({ isCatched, name, setIsCatched, close, img }) => {
                 justify-content: center;
               `}
             >
-              <Button disabled={isDisabled} type="submit">
+              <Button data-testid="save-button" disabled={isDisabled} type="submit">
                 Save
               </Button>
             </div>
@@ -89,6 +95,7 @@ const ModalContent = ({ isCatched, name, setIsCatched, close, img }) => {
             display: flex;
             align-items: center;
           `}
+          data-testid="success-added"
         >
           <CheckCircleTwoTone
             css={css`

@@ -7,7 +7,6 @@ import { useLocation } from 'react-router-dom'
 const GET_POKEMON = gql`
   query pokemon($name: String!) {
     pokemon(name: $name) {
-      id
       name
       sprites {
         front_default
