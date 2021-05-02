@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom'
 import App from './App'
 import { ApolloProvider } from '@apollo/client/react'
 import { ApolloClient, InMemoryCache } from '@apollo/client'
+import * as serviceWorker from './serviceWorker'
 
 const uri = 'https://graphql-pokeapi.vercel.app/api/graphql'
 const cache = new InMemoryCache()
@@ -18,3 +19,5 @@ const render = (Component) =>
   )
 
 render(hot(App))
+
+serviceWorker.register()
