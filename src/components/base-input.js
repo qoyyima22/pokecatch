@@ -20,6 +20,7 @@ const Input = ({ rules = [], ...rest }) => {
           border-radius: 4px;
           width: 100%;
         `}
+        data-testid="input"
         {...rest}
       />
       {errors.length ? (
@@ -30,6 +31,7 @@ const Input = ({ rules = [], ...rest }) => {
               align-items: center;
               margin: 8px 0;
             `}
+            key={i}
           >
             <CloseCircleTwoTone
               css={css`
@@ -42,13 +44,14 @@ const Input = ({ rules = [], ...rest }) => {
                 line-height: 1.6;
               `}
               key={i}
+              data-testid="error-message"
             >
               {el}
             </h6>
           </div>
         ))
       ) : (
-        <span />
+        <span data-testid="no-error" />
       )}
     </>
   )

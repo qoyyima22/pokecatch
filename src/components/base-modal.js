@@ -2,7 +2,7 @@
 import React from 'react'
 import { jsx, css } from '@emotion/react'
 import { white } from '../config/colors'
-import { LG_CONTAINER_DEFAULT } from 'src/config/layouts'
+import { LG_CONTAINER_DEFAULT } from '../config/layouts'
 
 const Modal = ({ children, show, close, closable, ...rest }) => {
   return show ? (
@@ -18,6 +18,7 @@ const Modal = ({ children, show, close, closable, ...rest }) => {
           z-index: 3;
         `}
         onClick={closable ? close : () => {}}
+        data-testid="modal-outer"
       ></div>
       <div
         css={css`

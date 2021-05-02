@@ -3,8 +3,8 @@ import React from 'react'
 import Header from '../components/layout-header'
 import { jsx, css } from '@emotion/react'
 import { white, greenGrass } from '../config/colors'
-import bg from 'src/assets/img/bg.png'
-import { SM_SCREEN } from 'src/config/layouts'
+import bg from '../assets/img/bg.png'
+import { SM_SCREEN } from '../config/layouts'
 
 const Layout = ({ children }) => {
   return (
@@ -17,7 +17,7 @@ const Layout = ({ children }) => {
             background-repeat: repeat-x;
             background-size: contain;
             top: 0;
-            bottom: 60vh;
+            bottom: 60%;
             left: 0;
             right: 0;
             width: 100%;
@@ -29,7 +29,7 @@ const Layout = ({ children }) => {
         <div
           css={css`
             background: linear-gradient(160deg, ${greenGrass} 20%, ${white});
-            top: 40vh;
+            top: 40%;
             bottom: 0vh;
             left: 0;
             right: 0;

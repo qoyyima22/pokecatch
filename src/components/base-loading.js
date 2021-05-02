@@ -13,6 +13,7 @@ const Loading = () => {
       `}
     >
       <div
+        data-testid="loading"
         css={css`
           display: inline-block;
           position: relative;

@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import React from 'react'
 import { jsx, css } from '@emotion/react'
-import PokeballSvg from 'src/assets/img/pokeball.svg'
+import PokeballSvg from '../assets/img/pokeball.svg'
 
 const Catch = ({ setIsCatched, setIsCatching, setModal }) => {
   var getRandom = function () {

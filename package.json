@@ -7,7 +7,7 @@
   "scripts": {
     "start": "webpack serve --config webpack.dev.js",
     "build": "webpack --optimization-minimize --config webpack.prod.js",
-    "test": "jest -c jest.config.js --watchAll --coverage --setupTestFrameworkScriptFile=./src/setupTest.js",
+    "test": "jest -c --watchAll --coverage --setupTestFrameworkScriptFile=./src/setupTest.js",
     "build:dev": "webpack --optimization-minimize --config webpack.dev.js",
     "lint-staged": "lint-staged",
     "prettier": "prettier --write \"src/**/*.{js,jsx,ts,tsx,scss,less}\""
@@ -51,8 +51,7 @@
   },
   "jest": {
     "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
-      "\\.(css|less)$": "identity-obj-proxy"
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js"
     }
   },
   "husky": {
