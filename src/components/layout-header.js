@@ -1,9 +1,16 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/react'
-import { goldYellow, blue, bostonRed } from '../config/colors'
+import { goldYellow, blue, bostonRed, white } from '../config/colors'
 import { Link } from 'react-router-dom'
+import { ShareAltOutlined } from '@ant-design/icons'
 
 const Header = () => {
+  const share = () => [
+    navigator.share({
+      url: document.location.href,
+    }),
+  ]
+
   return (
     <div
       css={css`
@@ -37,6 +44,29 @@ const Header = () => {
           PokeCatch
         </h1>
       </Link>
+      {navigator?.share && (
+        <div
+          css={css`
+            position: absolute;
+            right: 12px;
+            top: 18px;
+            background-color: ${blue}aa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            height: 40px;
+            width: 40px;
+          `}
+        >
+          <ShareAltOutlined
+            css={css`
+              color: ${white};
+            `}
+            onClick={share}
+          />
+        </div>
+      )}
     </div>
   )
 }
