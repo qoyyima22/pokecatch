@@ -13,7 +13,7 @@ module.exports = merge(common, {
       patterns: [
         {
           context: __dirname+'/public',
-          from: 'logo-ex.png',
+          from: '*.png',
         },
         {
           context: __dirname+'/public',
