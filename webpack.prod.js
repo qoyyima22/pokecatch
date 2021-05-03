@@ -22,10 +22,6 @@ module.exports = merge(common, {
         {
           context: __dirname+'/public',
           from: '*.js',
-        },
-        {
-          context: __dirname+'/src',
-          from: 'serviceWorker.js'
         }
       ]
     })
