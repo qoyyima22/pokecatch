@@ -43,6 +43,9 @@ module.exports = {
       template: 'public/index.html',
       favicon: 'public/favicon.png',
       manifest: 'public/manifest.json'
+    }),
+    new webpack.DefinePlugin({
+      'process.env.PUBLIC_URL': JSON.stringify(''),
     })
   ],
 };
