@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom'
 import { ShareAltOutlined } from '@ant-design/icons'
 
 const Header = () => {
-  const share = () => [
+  const share = () => {
     navigator.share({
       url: document.location.href,
-    }),
-  ]
+    })
+  }
 
   return (
     <div
