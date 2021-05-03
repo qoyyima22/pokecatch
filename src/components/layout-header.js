@@ -49,14 +49,14 @@ const Header = () => {
           css={css`
             position: absolute;
             right: 12px;
-            top: 18px;
+            top: 14px;
             background-color: ${blue}aa;
             display: flex;
             justify-content: center;
             align-items: center;
             border-radius: 50%;
-            height: 40px;
-            width: 40px;
+            height: 36px;
+            width: 36px;
           `}
         >
           <ShareAltOutlined

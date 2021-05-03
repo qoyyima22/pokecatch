@@ -31,7 +31,7 @@ const Detail = () => {
   const gqlVariables = {
     name: splitted[splitted.length - 1],
   }
-  const { loading, error, data, fetchMore } = useQuery(GET_POKEMON, {
+  const { loading, error, data } = useQuery(GET_POKEMON, {
     variables: gqlVariables,
     notifyOnNetworkStatusChange: true,
   })
