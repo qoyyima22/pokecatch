@@ -41,10 +41,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: 'public/index.html',
-      favicon: 'public/favicon.png',
-      manifest: 'public/manifest.json',
-      worker: 'public/worker.js',
-      "logo-ex": 'public/logo-ex.png'
+      favicon: 'public/favicon.png'
     }),
     new webpack.DefinePlugin({
       'process.env.PUBLIC_URL': JSON.stringify(''),
