@@ -68,6 +68,7 @@ const globalStyle = css`
   h4,
   h5,
   h6,
+  p,
   span {
     margin: 0;
     font-family: Montserrat, open-sans;

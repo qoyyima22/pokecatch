@@ -3,12 +3,10 @@ import React from 'react'
 import { jsx, css } from '@emotion/react'
 import { bostonRed, white, goldYellow } from '../config/colors'
 import { Link } from 'react-router-dom'
-// import store from 'store'
 import { LG_CONTAINER_DEFAULT, SM_SCREEN } from '../config/layouts'
 import { useAppContext } from '../context'
 
 const Profile = () => {
-  // const owned = store.get('owned') || []
   const { state } = useAppContext()
   const { owned } = state
   return (
@@ -61,6 +59,7 @@ const Profile = () => {
                       margin-right: 4px;
                       border: 1px solid ${bostonRed};
                     `}
+                    alt={el.name}
                   />
                 </Link>
               ))}
