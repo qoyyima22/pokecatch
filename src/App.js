@@ -2,25 +2,25 @@
 import React from 'react'
 import { Switch, BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import importedComponent from 'react-imported-component'
-import Loading from './components/base-loading'
+import { LoadingPage } from './components/base-loading'
 import { Global, css, jsx } from '@emotion/react'
 import Pokemon from './assets/fonts/pokemon2.ttf'
 import Montserrat from './assets/fonts/montserrat.ttf'
-import { white, bostonRed, darkGrey, greenGrass } from './config/colors'
+import { white, bostonRed, darkGrey } from './config/colors'
 import { Provider } from './context'
 
 const Home = importedComponent(() => import(/* webpackChunkName: 'Home' */ './pages/home'), {
-  LoadingComponent,
+  LoadingComponent: LoadingPage,
 })
 
 const Detail = importedComponent(() => import(/* webpackChunkName: 'Detail' */ './pages/detail'), {
-  LoadingComponent,
+  LoadingComponent: LoadingPage,
 })
 
 const MyPokemons = importedComponent(
   () => import(/* webpackChunkName: 'MyPokemon' */ './pages/mypokemons'),
   {
-    LoadingComponent,
+    LoadingComponent: LoadingPage,
   },
 )
 
@@ -43,20 +43,6 @@ const App = () => {
 }
 
 export default App
-
-const LoadingComponent = () => {
-  return (
-    <div
-      css={css`
-        height: 100vh;
-        width: 100vw;
-        background: linear-gradient(160deg, ${greenGrass} 20%, ${white});
-      `}
-    >
-      <Loading />
-    </div>
-  )
-}
 
 const globalStyle = css`
   html,

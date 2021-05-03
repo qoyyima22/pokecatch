@@ -6,10 +6,16 @@
         "src": "/logo-ex.png",
         "type": "image/png",
         "sizes": "512x512"
+      },
+      {
+        "src": "/logo-ex.png",
+        "sizes": "512*512",
+        "type": "image/png",
+        "purpose": "any maskable"
       }
     ],
     "start_url": ".",
     "display": "standalone",
-    "theme_color": "#000000",
+    "theme_color": "#FFDE00",
     "background_color": "#ffffff"
   }
