@@ -36,9 +36,6 @@ const Layout = ({ children }) => {
             width: 100%;
             position: fixed;
             z-index: -1;
-            /* @media (min-width: ${SM_SCREEN}) {
-            background: none;
-          } */
           `}
         ></div>
         {children}

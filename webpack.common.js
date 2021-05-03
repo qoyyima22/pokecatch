@@ -43,6 +43,7 @@ module.exports = {
       template: 'public/index.html',
       favicon: 'public/favicon.png',
       manifest: 'public/manifest.json',
+      worker: 'public/worker.js',
       "logo-ex": 'public/logo-ex.png'
     }),
     new webpack.DefinePlugin({
